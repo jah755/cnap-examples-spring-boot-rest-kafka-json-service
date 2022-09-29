@@ -1,0 +1,39 @@
+plugins {
+    id "application" // Apply plugin for Java Application
+    id "org.springframework.boot" version "2.6.7"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation(
+        // Spring Boot Web Starter - Will run a web server on default port 8080
+        "org.springframework.boot:spring-boot-starter-web:2.6.7",
+
+        "org.springdoc:springdoc-openapi-ui:1.6.7", // Swagger UI on http://localhost:8080/swagger-ui/index.html
+
+        // Kafka client
+        "org.apache.kafka:kafka-clients:3.1.0",
+
+        // Spring Kafka support
+        "org.springframework.kafka:spring-kafka:2.8.5",
+        "org.springframework.kafka:spring-kafka-test:2.8.5",
+
+        "net.logstash.logback:logstash-logback-encoder:7.0.1"
+
+    )
+
+    testImplementation(
+        "org.springframework.boot:spring-boot-starter-test:2.6.7",
+    )
+}
+
+application {
+    mainClass = "dk.kmd.cnap.examples.spring.boot.rest.kafka.json.service.SpringBootRestKafkaJsonApplication"
+}
+
+test {
+    useJUnitPlatform()
+}

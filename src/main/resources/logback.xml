@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="console-appender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+            <providers>
+                <timestamp>
+                    <fieldName>log-time</fieldName>
+                </timestamp>
+                <logLevel>
+                    <fieldName>log-level</fieldName>
+                </logLevel>
+                <threadName>
+                    <fieldName>log-thread</fieldName>
+                </threadName>
+                <loggerName>
+                    <fieldName>logger-name</fieldName>
+                </loggerName>
+                <message>
+                    <fieldName>log-message</fieldName>
+                </message>
+                <arguments></arguments>
+            </providers>
+        </encoder>
+    </appender>
+    <root level="INFO">
+        <appender-ref ref="console-appender" />
+    </root>
+</configuration>

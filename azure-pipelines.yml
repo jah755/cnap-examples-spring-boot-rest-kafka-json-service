@@ -1,0 +1,16 @@
+resources:
+  repositories:
+    - repository: cnap-templates-pipeline-azure
+      type: git
+      name: cnap-templates-pipeline-azure
+      ref: refs/tags/v0.77
+
+variables:
+  image: cnap-examples-spring-boot-rest-kafka-json-service
+  name: cnap-examples-spring-boot-rest-kafka-json-service
+
+stages:
+  - template: azure-stage-build-and-deploy.yml@cnap-templates-pipeline-azure
+    parameters:
+      image: $(image)
+      name: $(name)

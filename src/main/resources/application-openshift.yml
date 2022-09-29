@@ -1,0 +1,6 @@
+spring:
+  kafka:
+    replicas: 3
+    partitions: 3
+    bootstrap:
+     servers: "taxloan-kafka-brokers.amqs.svc:9092"
